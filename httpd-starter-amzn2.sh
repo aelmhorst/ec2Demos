@@ -14,4 +14,5 @@ chmod u+x ec2-metadata
 
 # Retrieve the EC2 instance ID and add it to the default httpd doc
 EC2ID=$(./ec2-metadata --instance-id)
-echo "<html><body><h1>Welcome to version 0 of EC2 Demo running on $EC2ID (Amazon Linux2)</h1></body></html>" > /var/www/html/index.html
+EC2OS=$(cat /etc/system-release)
+echo "<html><body><h1>Welcome to version 0 of EC2 Demo running on $EC2OS, instance: $EC2ID</h1></body></html>" > /var/www/html/index.html
